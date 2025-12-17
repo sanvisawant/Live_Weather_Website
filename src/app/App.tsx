@@ -68,13 +68,7 @@ export default function App() {
     setUsingMockData(true);
   }, []);
 
-  // To use real weather data:
-  // 1. Sign up for a free API key at https://openweathermap.org/api
-  // 2. Replace 'YOUR_API_KEY_HERE' with your actual API key
-  // 3. Uncomment the fetchWeather function below
-
   const fetchWeather = async (cityName: string) => {
-    // Replace this with your actual API key from https://openweathermap.org/api
     const API_KEY = import.meta.env.VITE_WEATHER_API_KEY || "";
     console.log("API Key:", API_KEY);
 
@@ -191,7 +185,7 @@ export default function App() {
           setError("");
 
           try {
-            const API_KEY = "bfd2ccee2a48c3ce2ec826365b5b9b6f";
+            const API_KEY = import.meta.env.VITE_WEATHER_API_KEY || "";
             const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
             const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
 
